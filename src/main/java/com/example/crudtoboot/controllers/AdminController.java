@@ -33,12 +33,6 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    // Следующие 2-а метода для редактирования (первый выводит страницу, второй получает данные и сохраняет).
-//    @GetMapping("/{id}")
-//    public String edit(@PathVariable("id") Long id,Model model) {
-//        model.addAttribute("user", userService.show(id));
-//        return "admin/edit";
-//    }
     @PatchMapping("/{id}")
     public String update(@PathVariable("id") Long id, @ModelAttribute("user") User user) {
         userService.update(id, user);

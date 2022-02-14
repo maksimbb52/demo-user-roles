@@ -165,22 +165,22 @@
                     <div class="container d-flex justify-content-center text-center">
                         <div class="form-group">
                             <label for="id"><b>ID</b></label>
-                            <input class="form-control" th:value="${user.id}" id="id">
+                            <input class="form-control" th:value="${user.id}" name="id" id="id">
                             <br>
                             <label for="edName"><b>First name</b></label>
-                            <input class="form-control" th:value="${user.firstName}" id="edName">
+                            <input class="form-control" th:value="${user.firstName}" name="firstName" id="edName">
                             <br>
                             <label for="edLName"><b>Last name</b></label>
-                            <input class="form-control" th:value="${user.lastName}" id="edLName">
+                            <input class="form-control" th:value="${user.lastName}" name="lastName" id="edLName">
                             <br>
                             <label for="edAge"><b>Age</b></label>
-                            <input class="form-control" th:value="${user.age}" id="edAge">
+                            <input class="form-control" th:value="${user.age}" name="age" id="edAge">
                             <br>
                             <label for="edEmail"><b>Email</b></label>
-                            <input type="email" class="form-control" th:value="${user.email}" id="edEmail">
+                            <input type="email" class="form-control" th:value="${user.email}" name="email" id="edEmail">
                             <br>
                             <label for="edPassword"><b>Password</b></label>
-                            <input type="password" class="form-control" th:value="${user.password}" id="edPassword">
+                            <input type="password" class="form-control" th:value="${user.password}" name="password" id="edPassword">
                             <br>
                             <!--                                        Добавить выбор роли-->
                             <label for="edRole"><b>Role</b></label>
