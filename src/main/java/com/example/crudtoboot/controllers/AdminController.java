@@ -4,6 +4,7 @@ import com.example.crudtoboot.models.User;
 import com.example.crudtoboot.service.UserService;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,9 @@ public class AdminController {
 
     // Вывод всех пользователей на 1-ой странице + получаем модель для сохранения пользователя
     @GetMapping
-    public String index(Model model) {
-//        model.addAttribute("admin", userService.findUserByEmail(user.getUsername()));
+    public String index(Model model, Principal principal, Authentication authentication) {
+        model.addAttribute("principal", principal.getName());
+        model.addAttribute("authentication", authentication.getAuthorities());
         model.addAttribute("addUser", new User());
         model.addAttribute("users", userService.index());
         return "admin/show";

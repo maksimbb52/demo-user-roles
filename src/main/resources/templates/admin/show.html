@@ -12,11 +12,28 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.min.js" integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
-    <a style="color: #FFFFFF"> <b>VALUE</b> with roles: ADMIN </a>
-    <ul class="navbar-nav">
-        <a class="nav-link" href="/logout">Logout</a>
-    </ul>
+<!--Шапка-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <b class="nav-link active" th:text="${principal}">EmailPlaceHolder</b>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active">with roles:</a>
+                </li>
+                <li class="nav-item">
+                    <a th:each="role : ${authentication}">
+                        <span class="nav-link active p=0"
+                              th:text="${role.toString()}">Roles_Placeholder</span>
+                    </a>
+                </li>
+            </ul>
+            </div>
+            <ul class="navbar-nav">
+                <a class="nav-link" href="/logout">Logout</a>
+            </ul>
+    </div>
 </nav>
 <!--Блоки-->
 <div class="container-fluid">
@@ -232,9 +249,6 @@
                                     <br>
                                     <label for="delEmail"><b>Email</b></label>
                                     <input type="email" class="form-control" readonly th:value="${user.email}" name="email" id="delEmail">
-                                    <br>
-                                    <label for="delPassword"><b>Password</b></label>
-                                    <input type="password" class="form-control" readonly th:value="${user.password}" name="password" id="delPassword">
                                     <br>
                                     <!--                                        Добавить выбор роли-->
                                     <label for="delRole"><b>Role</b></label>
