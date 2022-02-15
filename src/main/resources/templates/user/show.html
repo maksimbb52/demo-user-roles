@@ -14,11 +14,27 @@
 <body>
 
 <!--Шапка-->
-<nav class="navbar navbar-dark bg-dark">
-    <a style="color: #FFFFFF"> <b th:text="${user.getEmail()}">VALUE</b> with roles: USER</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+                <b class="nav-link active" th:text="${user.getEmail()}">EmailPlaceHolder</b>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active">with roles:</a>
+            </li>
+            <li class="nav-item">
+                <a th:each="role : ${user.getRoles}">
+                        <span class="nav-link active p=0"
+                              th:text="${role.toString()}">Roles_Placeholder</span>
+                </a>
+            </li>
+        </ul>
+    </div>
     <ul class="navbar-nav">
         <a class="nav-link" href="/logout">Logout</a>
     </ul>
+    </div>
 </nav>
 <!--Блоки-->
 <div class="container-fluid">
@@ -73,17 +89,5 @@
         </div>
     </div>
 </div>
-
-<!--<h3>User</h3>-->
-
-<!--<p th:text="${user.getId()}">VALUE</p>-->
-<!--<p th:text="${user.getFirstName()}">VALUE</p>-->
-<!--<p th:text="${user.getLastName()}">VALUE</p>-->
-<!--<p th:text="${user.getAge()}">VALUE</p>-->
-<!--<p th:text="${user.getEmail()}">VALUE</p>-->
-<!--<p th:text="${user.getPassword()}">VALUE</p>-->
-
-<!--<a th:href="@{/logout}">Logout</a>-->
-
 </body>
 </html>
