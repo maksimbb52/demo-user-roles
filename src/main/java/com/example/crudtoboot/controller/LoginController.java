@@ -1,4 +1,4 @@
-package com.example.crudtoboot.controllers;
+package com.example.crudtoboot.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

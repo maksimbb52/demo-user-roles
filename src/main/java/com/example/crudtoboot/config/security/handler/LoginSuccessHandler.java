@@ -30,7 +30,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
         else if (roles.contains("ROLE_USER")) {
             String email = authentication.getName();
-            Long id = userService.findUserByEmail(email).getId();
             httpServletResponse.sendRedirect("/user");
         }
     }

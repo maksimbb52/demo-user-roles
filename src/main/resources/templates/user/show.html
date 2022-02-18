@@ -18,13 +18,13 @@
     <div class="container-fluid">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-                <b class="nav-link active" th:text="${user.getEmail()}">EmailPlaceHolder</b>
+                <b class="nav-link active" th:text="${userEntity.getEmail()}">EmailPlaceHolder</b>
             </li>
             <li class="nav-item">
                 <a class="nav-link active">with roles:</a>
             </li>
             <li class="nav-item">
-                <a th:each="role : ${user.getRoles}">
+                <a th:each="role : ${userEntity.getRoles}">
                         <span class="nav-link active p=0"
                               th:text="${role.toString()}">Roles_Placeholder</span>
                 </a>
@@ -54,7 +54,7 @@
             <table class="table border">
                 <thead>
                 <tr>
-                    <th>About user</th>
+                    <th>About userEntity</th>
                 </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -73,12 +73,12 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td th:text="${user.getId()}">VALUE</td>
-                                <td th:text="${user.getFirstName()}">VALUE</td>
-                                <td th:text="${user.getLastName()}">VALUE</td>
-                                <td th:text="${user.getAge()}">VALUE</td>
-                                <td th:text="${user.getEmail()}">VALUE</td>
-                                <td th:text="${user.getRoles()}">VALUE</td>
+                                <td th:text="${userEntity.getId()}">VALUE</td>
+                                <td th:text="${userEntity.getFirstName()}">VALUE</td>
+                                <td th:text="${userEntity.getLastName()}">VALUE</td>
+                                <td th:text="${userEntity.getAge()}">VALUE</td>
+                                <td th:text="${userEntity.getEmail()}">VALUE</td>
+                                <td th:text="${userEntity.getRoles()}">VALUE</td>
                             </tr>
                             </tbody>
                         </table>

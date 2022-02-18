@@ -1,4 +1,4 @@
-package com.example.crudtoboot.controllers;
+package com.example.crudtoboot.controller;
 
 import com.example.crudtoboot.service.UserService;
 import lombok.RequiredArgsConstructor;

@@ -1,16 +1,13 @@
 package com.example.crudtoboot.dao;
 
-import com.example.crudtoboot.models.Role;
-import com.example.crudtoboot.models.User;
+import com.example.crudtoboot.entity.RoleEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public class RoleDaoImpl implements RoleDao{
@@ -19,21 +16,21 @@ public class RoleDaoImpl implements RoleDao{
     private EntityManager entityManager;
 
     @Override
-    public List<Role> indexRoles() {
-        Query query = entityManager.createQuery("from Role");
+    public List<RoleEntity> indexRoles() {
+        Query query = entityManager.createQuery("from RoleEntity");
 //        Set<Role> roles = new HashSet<Role>(query.getResultList());
         return query.getResultList();    }
 
     @Override
-    public Role findRoleByName(String roleName) {
-        TypedQuery<Role> query =  (TypedQuery<Role>) entityManager.createQuery("from Role where roleName = :roleName");
+    public RoleEntity findRoleByName(String roleName) {
+        TypedQuery<RoleEntity> query =  (TypedQuery<RoleEntity>) entityManager.createQuery("from RoleEntity where roleName = :roleName");
         query.setParameter("roleName", roleName);
         return query.getSingleResult();
     }
 
     @Override
-    public Role findRoleById(Long id) {
-        TypedQuery<Role> query =  (TypedQuery<Role>) entityManager.createQuery("from Role where id = :id");
+    public RoleEntity findRoleById(Long id) {
+        TypedQuery<RoleEntity> query =  (TypedQuery<RoleEntity>) entityManager.createQuery("from RoleEntity where id = :id");
         query.setParameter("id", id);
         return query.getSingleResult();
     }

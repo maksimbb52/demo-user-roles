@@ -1,7 +1,7 @@
 //package com.example.crudtoboot.controllers;
 //
-//import com.example.crudtoboot.models.Role;
-//import com.example.crudtoboot.models.User;
+//import com.example.crudtoboot.entity.Role;
+//import com.example.crudtoboot.entity.User;
 //import com.example.crudtoboot.service.RoleService;
 //import com.example.crudtoboot.service.UserService;
 //import lombok.RequiredArgsConstructor;

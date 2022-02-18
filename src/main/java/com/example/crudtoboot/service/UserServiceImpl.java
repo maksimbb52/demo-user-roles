@@ -1,14 +1,16 @@
 package com.example.crudtoboot.service;
 
 import com.example.crudtoboot.dao.UserDao;
-import com.example.crudtoboot.models.Role;
-import com.example.crudtoboot.models.User;
+import com.example.crudtoboot.dto.UserDto;
+import com.example.crudtoboot.entity.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
 import java.util.List;
+
+import static com.example.crudtoboot.util.mapper.UserMapper.toEntity;
+import static com.example.crudtoboot.util.mapper.UserMapper.toModel;
 
 @Service
 @RequiredArgsConstructor
@@ -18,15 +20,14 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public List<User> index() {
+    public List<UserEntity> index() {
         return userDao.index();
     }
 
     @Transactional
     @Override
-    public void addUser(User user) {
-        user.setRoles(Collections.singleton(new Role(2L, "ROLE_USER")));
-        userDao.addUser(user);
+    public void addUser(UserDto userDto) {
+        userDao.addUser(toEntity(toModel(userDto)));
     }
 
     @Transactional
@@ -37,19 +38,19 @@ public class UserServiceImpl implements UserService{
 
     @Transactional
     @Override
-    public User show(Long id) {
+    public UserEntity show(Long id) {
         return userDao.show(id);
     }
 
     @Transactional
     @Override
-    public void update(Long id, User updatedUser) {
-        userDao.update(id, updatedUser);
+    public void update(UserDto userDto) {
+        userDao.save(toEntity(toModel(userDto)));
     }
 
     @Transactional
     @Override
-    public User findUserByEmail(String email) {
+    public UserEntity findUserByEmail(String email) {
         return userDao.findUserByEmail(email);
     }
 }

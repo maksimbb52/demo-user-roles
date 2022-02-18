@@ -1,14 +1,14 @@
 package com.example.crudtoboot.dao;
 
-import com.example.crudtoboot.models.User;
+import com.example.crudtoboot.entity.UserEntity;
 
 import java.util.List;
 
 public interface UserDao {
-    List<User> index();
-    void addUser(User user);
+    List<UserEntity> index();
+    void addUser(UserEntity userEntity);
     void delete(Long id);
-    User show(Long id);
-    void update(Long id, User updatedUser);
-    User findUserByEmail(String email);
+    UserEntity show(Long id);
+    UserEntity save(UserEntity updatedUserEntity);
+    UserEntity findUserByEmail(String email);
 }
